@@ -11,8 +11,8 @@ import '../node_modules/bootstrap/js/src/collapse.js'
 
 function App() {
   return (
-    <div>
-      <Header brand="BRAND">
+    <div className="bg-light">
+      <Header brand="BlogStrap">
         <NavLink 
           exact 
           to="/"
@@ -30,7 +30,7 @@ function App() {
           Posts
         </NavLink>
       </Header>
-      <main className="container">
+      <main className="container mt-5">
         <Route exact path='/' component={Home} />
         <Route path='/users' component={Users} />
         <Route exact path='/posts/:index' component={Posts} />

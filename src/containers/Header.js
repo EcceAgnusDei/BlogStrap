@@ -28,7 +28,7 @@ function Header(props) {
 	}
 
 	return (
-		<header className="navbar navbar-expand-sm p-0 navbar-light bg-light">
+		<header className="navbar navbar-expand-sm p-0 navbar-light bg-white">
 			<div className="container">
 				{props.brand && 
 				<NavLink 

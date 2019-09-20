@@ -5,6 +5,7 @@ import { getPosts, next, prev, getByUser } from '../actions/postActions.js';
 import { getUsers } from '../actions/userActions.js';
 import Post from '../components/Post.js';
 import Pagination from '../components/Pagination.js';
+import Comments from './Comments';
 
 function Posts(props) {
 
@@ -39,7 +40,7 @@ function Posts(props) {
 				paginationItems.push(
 				{
 					content: i,
-					link: `/posts/${userId}/${i}`
+					link: `/posts/user${userId}/${i}`
 				})
 			}
 		}
@@ -62,22 +63,25 @@ function Posts(props) {
 		if (index > 1) {
 			paginationItems.unshift({
 				content: 'Prev',
-				link: `/posts/${userId}/${index - 1}`
+				link: `/posts/user${userId}/${index - 1}`
 			});
 		}
 		if (index < props.posts.length) {
 			paginationItems.push({
 				content: 'Next',
-				link: `/posts/${userId}/${index + 1}`
+				link: `/posts/user${userId}/${index + 1}`
 			})
 		}
 	}
 
 	return (
 		<React.Fragment>
-			<h1>Posts</h1>
+			<h1>{index === 1 ? 'Last post' : 'Post'}</h1>
 			{props.posts.length > 0 && props.users.length > 0 &&
-			<Post users={props.users} post={props.posts[index - 1]}/>}
+			<React.Fragment>
+				<Post users={props.users} post={props.posts[index - 1]}/>
+				<Comments postId={props.posts[index - 1].id}/>
+			</React.Fragment>}
 			<Pagination items={paginationItems}/>
 		</React.Fragment>
 	);
