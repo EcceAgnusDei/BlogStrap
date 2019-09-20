@@ -25,7 +25,7 @@ function App() {
           Users
         </NavLink>
         <NavLink
-          to="/posts/1"
+          to="/posts"
         >
           Posts
         </NavLink>
@@ -33,7 +33,9 @@ function App() {
       <main className="container">
         <Route exact path='/' component={Home} />
         <Route path='/users' component={Users} />
-        <Route path='/posts/:index' component={Posts} />
+        <Route exact path='/posts/:index' component={Posts} />
+        <Route exact path='/posts' component={Posts} />
+        <Route path='/posts/user:userId/:index' component={Posts} />
       </main>
     </div>
   );

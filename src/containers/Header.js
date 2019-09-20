@@ -31,9 +31,11 @@ function Header(props) {
 		<header className="navbar navbar-expand-sm p-0 navbar-light bg-light">
 			<div className="container">
 				{props.brand && 
-				<a href="#" className="navbar-brand">
+				<NavLink 
+					to="/"
+					className="navbar-brand">
 					{props.brand}
-				</a>}
+				</NavLink>}
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" 
 				aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 		    		<span className="navbar-toggler-icon"></span>

@@ -1,47 +1,76 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { getPosts, next, prev } from '../actions/postActions.js';
+import { getPosts, next, prev, getByUser } from '../actions/postActions.js';
 import { getUsers } from '../actions/userActions.js';
 import Post from '../components/Post.js';
 import Pagination from '../components/Pagination.js';
 
 function Posts(props) {
 
+	const userId = props.match.params.userId;
+	
 	useEffect(() => {
-		props.getAllPosts();
 		props.getAllUsers();
-	}, [])
+		if(userId)
+		{
+			props.getAllByUser(userId)
+		} else {
+			props.getAllPosts();
+		}
+	}, [userId])
 
-	const index = parseInt(props.match.params.index);
+	const index = props.match.params.index ? parseInt(props.match.params.index) : 1;
 	const navSpan = 5
 
 	const paginationItems = [];
 
 	for (let i = index - navSpan ; i <= index + navSpan ; i++)
 	{
-		if (i > 0 && i < props.posts.length)
+		if (i > 0 && i <= props.posts.length)
 		{
-			paginationItems.push(
-			{
-				content: i,
-				link: `/posts/${i}`
-			})
+			if (!userId) {
+				paginationItems.push(
+				{
+					content: i,
+					link: `/posts/${i}`
+				})
+			} else {
+				paginationItems.push(
+				{
+					content: i,
+					link: `/posts/${userId}/${i}`
+				})
+			}
 		}
 	}
 
-	if (props.match.params.index > 1) {
-		paginationItems.unshift({
-			content: 'Prev',
-			link: `/posts/${index - 1}`
-		})
-	}
-	if (props.match.params.index < props.posts.length)
-	{
-		paginationItems.push({
-			content: 'Next',
-			link: `/posts/${index + 1}`
-		})
+	if (!userId) {
+		if (index > 1) {
+			paginationItems.unshift({
+				content: 'Prev',
+				link: `/posts/${index - 1}`
+			});
+		}
+		if (index < props.posts.length) {
+			paginationItems.push({
+				content: 'Next',
+				link: `/posts/${index + 1}`
+			})
+		}
+	} else {
+		if (index > 1) {
+			paginationItems.unshift({
+				content: 'Prev',
+				link: `/posts/${userId}/${index - 1}`
+			});
+		}
+		if (index < props.posts.length) {
+			paginationItems.push({
+				content: 'Next',
+				link: `/posts/${userId}/${index + 1}`
+			})
+		}
 	}
 
 	return (
@@ -58,6 +87,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		getAllPosts: () => dispatch(getPosts()),
 		getAllUsers: () => dispatch(getUsers()),
+		getAllByUser: (id) => dispatch(getByUser(id))
 	}
 }
 

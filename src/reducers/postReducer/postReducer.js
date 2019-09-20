@@ -3,18 +3,19 @@ import {
 	ERROR, 
 	NEXT_POST,
 	PREV_POST,
-	SET_POST } from '../../actions/types';
+	SET_POST,
+	GET_BY_USER } from '../../actions/types';
 
 const initialState = {
 	all: [],
-	currentPost: 0
+	currentPost: 0,
 }
 
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case GET_POSTS:
 			return {
-				...state,
+				currentPost: 0,
 				all: action.payload
 			}
 			break;
@@ -32,6 +33,11 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				currentPost: action.payload
+			}
+		case GET_BY_USER:
+			return {
+				all: state.all.filter(post => post.userId == action.payload),
+				currentPost: 0
 			}
 		default:
 			return state;
