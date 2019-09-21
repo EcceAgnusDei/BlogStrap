@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Pagination(props) {
 	return (
 		<nav aria-label="Post navigation">
-			<ul className="pagination">
+			<ul className="pagination justify-content-center flex-wrap">
 				{
 					props.items.map(item => 
 						<li className="page-item" key={item.content}>
