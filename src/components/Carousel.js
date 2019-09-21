@@ -1,22 +1,23 @@
 import React from 'react';
-import '../../node_modules/bootstrap/js/src/carousel';
 
 function Carousel(props) {
 
-	const indicatorsJSX = [<li data-target="#carousel" data-slide-to="0" className="active"></li>];
+	const indicatorsJSX = [<li key='0' data-target="#carousel" data-slide-to="0" className="active"></li>];
 	for (let i = 1 ; i < props.children.length ; i++)
 	{
-		indicatorsJSX.push(<li data-target="#carousel" data-slide-to={i}></li>);
+		indicatorsJSX.push(<li data-target="#carousel" data-slide-to={i} key={i}></li>);
 	}
 
 	const innerJSX = props.children.map((item, index) =>
-		<div className={index == 0 ? 'carousel-item active' : 'carousel-item'}>
+		<div key={index} className={index == 0 ? 'carousel-item active' : 'carousel-item'}>
 			{item}
 		</div>
 	)
 
+	const className = props.theme ? `carousel slide bg-${props.theme.primary}` : `carousel slide bg-primary`;
+
 	return (
-		<div id="carousel" className="carousel slide bg-primary" data-ride="carousel" data-interval="false">
+		<div id="carousel" className={className} data-ride="carousel" data-interval="false">
 			<ol className="carousel-indicators">
 				{indicatorsJSX}
 			</ol>

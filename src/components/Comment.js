@@ -1,18 +1,15 @@
-import React from 'react'
+import React from 'react';
+
+import Card from './Card';
 
 function Comment(props) {
 
 	const { name, body } = props.comment;
 
 	return (
-		<div className="card mb-3">
-			<div className="card-header">
-				<h5>{name}</h5>
-			</div>
-			<div className="card-body">
-				{body}
-			</div>
-		</div>
+		<Card theme={props.theme} header={<h5>{name}</h5>}>
+			{body}
+		</Card>
 	);
 }
 

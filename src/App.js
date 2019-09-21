@@ -6,13 +6,22 @@ import Header from './containers/Header';
 import Users from './containers/Users';
 import Home from './containers/Home';
 import Posts from './containers/Posts';
+import Dropdown from './components/Dropdown.js';
+import { changeTheme } from './actions/themeActions'
 import './css/style.min.css';
-import '../node_modules/bootstrap/js/src/collapse.js'
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
-function App() {
+import themes from './libs/themes.js';
+
+function App(props) {
+
+  const themesJSX = themes.map(item => 
+    <button key={item.name} onClick={() => props.changeTheme(item.name)}>{item.name}</button>
+  )
+
   return (
     <div className="bg-light">
-      <Header brand="BlogStrap">
+      <Header brand="BlogStrap" theme={props.theme}>
         <NavLink 
           exact 
           to="/"
@@ -29,6 +38,9 @@ function App() {
         >
           Posts
         </NavLink>
+        <Dropdown buttonContent="Change Theme" theme={props.theme}>
+          {themesJSX}
+        </Dropdown>
       </Header>
       <main className="container mt-5">
         <Route exact path='/' component={Home} />
@@ -41,4 +53,16 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    changeTheme: (theme) => dispatch(changeTheme(theme))
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    theme: state.theme
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

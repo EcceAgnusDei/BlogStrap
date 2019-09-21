@@ -1,1 +1,10 @@
+$theme-colors: (
+  "mint": #3ed079,
+  "chocolate": #430303
+);
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+header {
+	height: 50px;
+}

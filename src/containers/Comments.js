@@ -13,7 +13,7 @@ function Comments(props) {
 	}, [props.postId]);
 
 	const commentJSX = props.comments.map(item =>
-		<Comment key={item.id} comment={item} />
+		<Comment key={item.id} comment={item} theme={props.theme}/>
 	)
 
 	return (

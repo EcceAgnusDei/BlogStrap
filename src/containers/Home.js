@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Carousel from '../components/Carousel.js';
 import reactLogo from '../img/logo-react.svg';
@@ -20,13 +21,14 @@ function Home(props) {
 
 	const cursiveStyle = {
 		fontFamily: "'Dancing Script', cursive",
-		fontSize: '3em'
+		fontSize: '3em',
+		textShadow: 'rgba(0,0,0,0.5) 1px 1px 2px'
 	}
 
 	return (
 		<React.Fragment>
 			<h1>Home</h1>
-			<Carousel>
+			<Carousel theme={props.theme}>
 				<div style={sliderStyle} className="d-flex justify-content-center">
 					<div className="media align-self-center w-75 row">
 						<img src={reactLogo} className="align-self-center col-6 col-md-2" style={mediaStyle} alt=""/>
@@ -50,15 +52,21 @@ function Home(props) {
 					<div className="align-self-center w-75">
 						<p>Well, if you'r looking for something to read, you're in the wrong place...
 						Unless you speak latin!</p>
-						<p style={cursiveStyle}>Lorem Ipsum...</p>
+						<p style={cursiveStyle} className={props.theme && `text-${props.theme.secondary}`}>Lorem Ipsum...</p>
 					</div>
 				</div>
 			</Carousel>
-			<Jumbotron>
+			<Jumbotron theme={props.theme}>
 				{jumbotron}
 			</Jumbotron>
 		</React.Fragment>
 	);
 }
 
-export default Home;
+const mapStateToProps = state => {
+	return {
+		theme: state.theme
+	}
+}
+
+export default connect(mapStateToProps, null)(Home);

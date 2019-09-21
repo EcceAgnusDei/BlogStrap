@@ -16,7 +16,7 @@ function Users(props) {
 			{
 				props.users.map(item =>
 					<div key={item.id} className="col-8 offset-2 offset-sm-0 col-sm-6 col-md-4 col-lg-3 mb-3">
-						<User user={item}/>
+						<User user={item} theme={props.theme}/>
 					</div>
 				)
 			}
@@ -33,7 +33,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
 	return {
-		users: state.user.all
+		users: state.user.all,
+		theme: state.theme
 	}
 }
 

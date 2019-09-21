@@ -79,10 +79,10 @@ function Posts(props) {
 			<h1>{index === 1 ? 'Last post' : 'Post'}</h1>
 			{props.posts.length > 0 && props.users.length > 0 &&
 			<React.Fragment>
-				<Post users={props.users} post={props.posts[index - 1]}/>
-				<Comments postId={props.posts[index - 1].id}/>
+				<Post users={props.users} post={props.posts[index - 1]} theme={props.theme}/>
+				<Comments postId={props.posts[index - 1].id} theme={props.theme}/>
 			</React.Fragment>}
-			<Pagination items={paginationItems}/>
+			<Pagination items={paginationItems} theme={props.theme}/>
 		</React.Fragment>
 	);
 }
@@ -98,7 +98,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
 	return {
 		posts: state.post.all,
-		users: state.user.all
+		users: state.user.all,
+		theme: state.theme
 	}
 }
 

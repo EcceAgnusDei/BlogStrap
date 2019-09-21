@@ -1,19 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { addClassToElement } from '../util.js';
+
 function Header(props) {
 	let menuJSX;
 
-	const addClassToElement = (element, className) => 
-	{
-		return {
-			...element,
-			props: {
-				...element.props,
-				className: element.props.className + ' ' + className
-			}
-		}
-	}
+	const headerClassName = props.theme ? `navbar navbar-expand-sm p-0 navbar-light bg-${props.theme.primary}` :
+	`navbar navbar-expand-sm p-0 navbar-light bg-primary`;
 
 	if (Array.isArray(props.children)) {
 		menuJSX = props.children.map(item => 
@@ -28,7 +22,7 @@ function Header(props) {
 	}
 
 	return (
-		<header className="navbar navbar-expand-sm p-0 navbar-light bg-white">
+		<header className={headerClassName}>
 			<div className="container">
 				{props.brand && 
 				<NavLink 
@@ -36,8 +30,15 @@ function Header(props) {
 					className="navbar-brand">
 					{props.brand}
 				</NavLink>}
-				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" 
-				aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+				<button 
+					className="navbar-toggler" 
+					type="button" 
+					data-toggle="collapse" 
+					data-target="#navbar" 
+					aria-controls="navbar" 
+					aria-expanded="false" 
+					aria-label="Toggle navigation"
+				>
 		    		<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbar">

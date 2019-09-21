@@ -5,4 +5,5 @@ export const NEXT_POST = 'nextPost';
 export const PREV_POST = 'prevPost';
 export const SET_POST = 'setPost';
 export const GET_BY_USER = 'getByUser';
-export const GET_POST_COMMENTS = "getPostComments";
+export const GET_POST_COMMENTS = 'getPostComments';
+export const CHANGE_THEME = 'changeTheme';
