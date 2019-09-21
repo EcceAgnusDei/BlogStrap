@@ -12,6 +12,7 @@ function Users(props) {
 	return (
 		<React.Fragment>
 			<h1>Users</h1>
+			{props.loading ? <h2>Loading Users...</h2> :
 			<div className="row">
 			{
 				props.users.map(item =>
@@ -20,7 +21,7 @@ function Users(props) {
 					</div>
 				)
 			}
-			</div>
+			</div>}
 		</React.Fragment>
 	);
 }
@@ -34,7 +35,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
 	return {
 		users: state.user.all,
-		theme: state.theme
+		theme: state.theme,
+		loading: state.status.usersLoading
 	}
 }
 

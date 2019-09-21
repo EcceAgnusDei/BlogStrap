@@ -6,13 +6,22 @@ import {
 		SET_POST,
 		GET_BY_USER } from './types.js';
 
-export const getPosts = () => dispatch => 
+import { postsLoading } from './statusAction.js';
+
+export const getPosts = () => dispatch => {
+	dispatch(postsLoading(true))
 	fetch('https://jsonplaceholder.typicode.com/posts')
 	.then(resp => resp.json())
-	.then(json => 
-		dispatch({type: GET_POSTS, payload: json.reverse()})
-	)
-	.catch(() => dispatch({type: ERROR}))
+	.then(json => {
+		dispatch({type: GET_POSTS, payload: json.reverse()});
+		dispatch(postsLoading(false));
+	})
+	.catch(() => {
+		dispatch({type: ERROR});
+		dispatch(postsLoading(false));
+	})
+
+}
 
 export const next = () => {
 	return {type: NEXT_POST}
