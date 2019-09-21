@@ -20,7 +20,7 @@ function App(props) {
   )
 
   return (
-    <div className="bg-light">
+    <div className="bg-light min-vh-100">
       <Header brand="BlogStrap" theme={props.theme}>
         <NavLink 
           exact 

@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { getPosts, next, prev, getByUser } from '../actions/postActions.js';
 import { getUsers } from '../actions/userActions.js';
+import { loading } from '../actions/statusAction.js';
 import Post from '../components/Post.js';
 import Pagination from '../components/Pagination.js';
 import Comments from './Comments';
 
 function Posts(props) {
-
 	const userId = props.match.params.userId;
 	
 	useEffect(() => {
@@ -19,7 +19,7 @@ function Posts(props) {
 		} else {
 			props.getAllPosts();
 		}
-	}, [userId])
+	}, [userId]);
 
 	const index = props.match.params.index ? parseInt(props.match.params.index) : 1;
 	const navSpan = 5
@@ -77,11 +77,12 @@ function Posts(props) {
 	return (
 		<React.Fragment>
 			<h1>{index === 1 ? 'Last post' : 'Post'}</h1>
-			{props.posts.length > 0 && props.users.length > 0 &&
+			{(props.posts.length > 0 && props.users.length > 0) ?
 			<React.Fragment>
 				<Post users={props.users} post={props.posts[index - 1]} theme={props.theme}/>
 				<Comments postId={props.posts[index - 1].id} theme={props.theme}/>
-			</React.Fragment>}
+			</React.Fragment> :
+			<h2>Loading...</h2>}
 			<Pagination items={paginationItems} theme={props.theme}/>
 		</React.Fragment>
 	);
