@@ -6,6 +6,7 @@ import { getUsers } from '../actions/userActions.js';
 import { loading } from '../actions/statusAction.js';
 import Post from '../components/Post.js';
 import Pagination from '../components/Pagination.js';
+import Spinner from '../components/Spinner.js';
 import Comments from './Comments';
 
 function Posts(props) {
@@ -77,7 +78,7 @@ function Posts(props) {
 	return (
 		<React.Fragment>
 			<h1>{index === 1 ? 'Last post' : 'Post'}</h1>
-			{props.postsLoading ? <h2>Loading posts...</h2> :
+			{(props.postsLoading || props.usersLoading) ? Spinner() :
 			<React.Fragment>
 				<Post users={props.users} post={props.posts[index - 1]} theme={props.theme}/>
 				<Comments postId={props.posts[index - 1].id} theme={props.theme}/>
@@ -100,7 +101,8 @@ const mapStateToProps = (state) => {
 		posts: state.post.all,
 		users: state.user.all,
 		theme: state.theme,
-		postsLoading: state.status.postsLoading
+		postsLoading: state.status.postsLoading,
+		usersLoading: state.status.usersLoading
 	}
 }
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { getComments } from '../actions/commentAction.js';
 import Comment from '../components/Comment';
+import Spinner from '../components/Spinner';
 
 function Comments(props) {
 
@@ -19,7 +20,7 @@ function Comments(props) {
 	return (
 		<React.Fragment>
 			<h2>Commentaires</h2>
-			{props.commentsLoading ? <h2>Loading comments...</h2> :
+			{props.commentsLoading ? Spinner() :
 			commentJSX.length > 0 ? commentJSX : 'No comments'}
 		</React.Fragment>
 	);
