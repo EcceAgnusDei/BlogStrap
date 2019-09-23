@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { getUsers } from '../actions/userActions.js';
 import User from '../components/User.js';
+import Spinner from '../components/Spinner.js';
 
 function Users(props) {
 	useEffect(() => {
@@ -12,7 +13,7 @@ function Users(props) {
 	return (
 		<React.Fragment>
 			<h1>Users</h1>
-			{props.loading ? <h2>Loading Users...</h2> :
+			{props.loading ? Spinner() :
 			<div className="row">
 			{
 				props.users.map(item =>
