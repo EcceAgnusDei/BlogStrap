@@ -23,9 +23,9 @@ function Header(props) {
 
 	return (
 		<header className={headerClassName}>
-			<div className="container">
+			<div className="container py-1">
 				{props.brand && 
-				<NavLink 
+				<NavLink
 					to="/"
 					className="navbar-brand">
 					{props.brand}

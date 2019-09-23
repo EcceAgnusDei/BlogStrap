@@ -6,7 +6,7 @@ export const jumbotron = {
 	lower: '',
 	links: [
 		{
-			href: '#',
+			href: 'https://github.com/EcceAgnusDei/BlogStrap',
 			content: <i className="fab fa-github"></i>
 		},
 		{

@@ -1,7 +1,12 @@
-import { ERROR, LOADING, LOADED } from '../../actions/types';
+import { ERROR,
+	 POSTS_LOADING,
+	 COMMENTS_LOADING,
+	 USERS_LOADING } from '../../actions/types';
 
 const initialState = {
-	loading: false,
+	postsLoading: true,
+	commentsLoading: true,
+	usersLoading: true,
 	error: false
 }
 
@@ -12,19 +17,25 @@ export default (state = initialState, action) => {
 				...state,
 				error: true
 			}
-			break;
-			case LOADING: 
+		break;
+		case POSTS_LOADING: 
 			return {
 				...state,
-				loading: true
+				postsLoading: action.payload
 			}
-			break;
-			case LOADED: 
+		break;
+		case COMMENTS_LOADING: 
 			return {
 				...state,
-				loading: false
+				commentsLoading: action.payload
 			}
-			break;
+		break;
+		case USERS_LOADING: 
+			return {
+				...state,
+				usersLoading: action.payload
+			}
+		break;
 		default:
 			return state;
 	}

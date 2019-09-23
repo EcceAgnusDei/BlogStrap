@@ -2,16 +2,32 @@ import React from 'react'
 
 function Jumbotron(props) {
 	const { title, upper, lower, links } = props.children;
+	let linksJSX = false;
 
-	const linksJSX = links.map((item, index) => 
-		<a 
-			href={item.href} 
-			key={index} 
+	if (links.length > 1) {
+		linksJSX = links.map((item, index) => 
+			<a 
+				href={item.href} 
+				key={index}
+				target="_blank"
+				rel="noopener noreferrer"
+				className={`mr-3 text-${props.theme ? props.theme.primary : 'primary'}`}
+			>
+			{item.content}
+			</a>
+		);
+	} 
+	else if (links.length == 1) {
+		linksJSX = 
+			<a 
+			href={links.href}
+			target="_blank"
+			rel="noopener noreferrer"
 			className={`mr-3 text-${props.theme ? props.theme.primary : 'primary'}`}
-		>
-		{item.content}
-		</a>
-	);
+			>
+			{links[0].content}
+			</a>
+	}
 
 	return (
 		<div className="jumbotron mt-5">

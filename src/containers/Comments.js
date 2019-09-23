@@ -19,7 +19,8 @@ function Comments(props) {
 	return (
 		<React.Fragment>
 			<h2>Commentaires</h2>
-			{commentJSX.length > 0 ? commentJSX : 'No comments'}
+			{props.commentsLoading ? <h2>Loading comments...</h2> :
+			commentJSX.length > 0 ? commentJSX : 'No comments'}
 		</React.Fragment>
 	);
 }
@@ -33,7 +34,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
 	return {
-		comments: state.comment
+		comments: state.comment,
+		commentsLoading: state.status.commentsLoading
 	}
 }
 

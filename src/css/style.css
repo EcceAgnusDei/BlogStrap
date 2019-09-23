@@ -26,7 +26,7 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
-  --mint: #3ed079;
+  --mint: #00b34a;
   --chocolate: #430303;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -1359,18 +1359,18 @@ pre {
 .table-mint,
 .table-mint > th,
 .table-mint > td {
-  background-color: #c9f2d9; }
+  background-color: #b8eacc; }
 .table-mint th,
 .table-mint td,
 .table-mint thead th,
 .table-mint tbody + tbody {
-  border-color: #9be7b9; }
+  border-color: #7ad7a1; }
 
 .table-hover .table-mint:hover {
-  background-color: #b4edcb; }
+  background-color: #a4e4be; }
   .table-hover .table-mint:hover > td,
   .table-hover .table-mint:hover > th {
-    background-color: #b4edcb; }
+    background-color: #a4e4be; }
 
 .table-chocolate,
 .table-chocolate > th,
@@ -2026,25 +2026,25 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5); }
 
 .btn-mint {
-  color: #212529;
-  background-color: #3ed079;
-  border-color: #3ed079; }
+  color: #fff;
+  background-color: #00b34a;
+  border-color: #00b34a; }
   .btn-mint:hover {
     color: #fff;
-    background-color: #2dba66;
-    border-color: #2bb061; }
+    background-color: #008d3a;
+    border-color: #008035; }
   .btn-mint:focus, .btn-mint.focus {
-    box-shadow: 0 0 0 0.2rem rgba(58, 182, 109, 0.5); }
+    box-shadow: 0 0 0 0.2rem rgba(38, 190, 101, 0.5); }
   .btn-mint.disabled, .btn-mint:disabled {
-    color: #212529;
-    background-color: #3ed079;
-    border-color: #3ed079; }
+    color: #fff;
+    background-color: #00b34a;
+    border-color: #00b34a; }
   .btn-mint:not(:disabled):not(.disabled):active, .btn-mint:not(:disabled):not(.disabled).active, .show > .btn-mint.dropdown-toggle {
     color: #fff;
-    background-color: #2bb061;
-    border-color: #28a65b; }
+    background-color: #008035;
+    border-color: #007330; }
     .btn-mint:not(:disabled):not(.disabled):active:focus, .btn-mint:not(:disabled):not(.disabled).active:focus, .show > .btn-mint.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(58, 182, 109, 0.5); }
+      box-shadow: 0 0 0 0.2rem rgba(38, 190, 101, 0.5); }
 
 .btn-chocolate {
   color: #fff;
@@ -2220,23 +2220,23 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5); }
 
 .btn-outline-mint {
-  color: #3ed079;
-  border-color: #3ed079; }
+  color: #00b34a;
+  border-color: #00b34a; }
   .btn-outline-mint:hover {
-    color: #212529;
-    background-color: #3ed079;
-    border-color: #3ed079; }
+    color: #fff;
+    background-color: #00b34a;
+    border-color: #00b34a; }
   .btn-outline-mint:focus, .btn-outline-mint.focus {
-    box-shadow: 0 0 0 0.2rem rgba(62, 208, 121, 0.5); }
+    box-shadow: 0 0 0 0.2rem rgba(0, 179, 74, 0.5); }
   .btn-outline-mint.disabled, .btn-outline-mint:disabled {
-    color: #3ed079;
+    color: #00b34a;
     background-color: transparent; }
   .btn-outline-mint:not(:disabled):not(.disabled):active, .btn-outline-mint:not(:disabled):not(.disabled).active, .show > .btn-outline-mint.dropdown-toggle {
-    color: #212529;
-    background-color: #3ed079;
-    border-color: #3ed079; }
+    color: #fff;
+    background-color: #00b34a;
+    border-color: #00b34a; }
     .btn-outline-mint:not(:disabled):not(.disabled):active:focus, .btn-outline-mint:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-mint.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(62, 208, 121, 0.5); }
+      box-shadow: 0 0 0 0.2rem rgba(0, 179, 74, 0.5); }
 
 .btn-outline-chocolate {
   color: #430303;
@@ -3717,14 +3717,14 @@ input[type="button"].btn-block {
     box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5); }
 
 .badge-mint {
-  color: #212529;
-  background-color: #3ed079; }
+  color: #fff;
+  background-color: #00b34a; }
   a.badge-mint:hover, a.badge-mint:focus {
-    color: #212529;
-    background-color: #2bb061; }
+    color: #fff;
+    background-color: #008035; }
   a.badge-mint:focus, a.badge-mint.focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(62, 208, 121, 0.5); }
+    box-shadow: 0 0 0 0.2rem rgba(0, 179, 74, 0.5); }
 
 .badge-chocolate {
   color: #fff;
@@ -3845,13 +3845,13 @@ input[type="button"].btn-block {
     color: #040505; }
 
 .alert-mint {
-  color: #206c3f;
-  background-color: #d8f6e4;
-  border-color: #c9f2d9; }
+  color: #005d26;
+  background-color: #ccf0db;
+  border-color: #b8eacc; }
   .alert-mint hr {
-    border-top-color: #b4edcb; }
+    border-top-color: #a4e4be; }
   .alert-mint .alert-link {
-    color: #144528; }
+    color: #002a11; }
 
 .alert-chocolate {
   color: #230202;
@@ -4124,15 +4124,15 @@ input[type="button"].btn-block {
     border-color: #1b1e21; }
 
 .list-group-item-mint {
-  color: #206c3f;
-  background-color: #c9f2d9; }
+  color: #005d26;
+  background-color: #b8eacc; }
   .list-group-item-mint.list-group-item-action:hover, .list-group-item-mint.list-group-item-action:focus {
-    color: #206c3f;
-    background-color: #b4edcb; }
+    color: #005d26;
+    background-color: #a4e4be; }
   .list-group-item-mint.list-group-item-action.active {
     color: #fff;
-    background-color: #206c3f;
-    border-color: #206c3f; }
+    background-color: #005d26;
+    border-color: #005d26; }
 
 .list-group-item-chocolate {
   color: #230202;
@@ -4824,12 +4824,12 @@ button.bg-dark:focus {
   background-color: #1d2124 !important; }
 
 .bg-mint {
-  background-color: #3ed079 !important; }
+  background-color: #00b34a !important; }
 
 a.bg-mint:hover, a.bg-mint:focus,
 button.bg-mint:hover,
 button.bg-mint:focus {
-  background-color: #2bb061 !important; }
+  background-color: #008035 !important; }
 
 .bg-chocolate {
   background-color: #430303 !important; }
@@ -4900,7 +4900,7 @@ button.bg-chocolate:focus {
   border-color: #343a40 !important; }
 
 .border-mint {
-  border-color: #3ed079 !important; }
+  border-color: #00b34a !important; }
 
 .border-chocolate {
   border-color: #430303 !important; }
@@ -7679,10 +7679,10 @@ a.text-dark:hover, a.text-dark:focus {
   color: #121416 !important; }
 
 .text-mint {
-  color: #3ed079 !important; }
+  color: #00b34a !important; }
 
 a.text-mint:hover, a.text-mint:focus {
-  color: #269c55 !important; }
+  color: #00672a !important; }
 
 .text-chocolate {
   color: #430303 !important; }
@@ -7798,7 +7798,7 @@ a.text-chocolate:hover, a.text-chocolate:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-header {
+.nav-container {
   height: 50px; }
 
 /*# sourceMappingURL=style.css.map */
