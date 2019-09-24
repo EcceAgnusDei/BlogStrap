@@ -12,7 +12,7 @@ function Users(props) {
 
 	return (
 		<React.Fragment>
-			<h1>Users</h1>
+			<h1 data-testid="title">Users</h1>
 			{props.loading ? Spinner() :
 			<div className="row">
 			{

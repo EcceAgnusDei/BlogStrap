@@ -27,7 +27,7 @@ function Home(props) {
 
 	return (
 		<React.Fragment>
-			<h1>Home</h1>
+			<h1 data-testid="title">Home</h1>
 			<Carousel theme={props.theme}>
 				<div style={sliderStyle} className="d-flex justify-content-center">
 					<div className="media align-self-center w-75 row">

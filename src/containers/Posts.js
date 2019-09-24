@@ -77,7 +77,7 @@ function Posts(props) {
 
 	return (
 		<React.Fragment>
-			<h1>{index === 1 ? 'Last post' : 'Post'}</h1>
+			<h1 data-testid="title">{index === 1 ? 'Last post' : 'Post'}</h1>
 			{(props.postsLoading || props.usersLoading) ? Spinner() :
 			<React.Fragment>
 				<Post users={props.users} post={props.posts[index - 1]} theme={props.theme}/>
