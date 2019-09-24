@@ -35,12 +35,18 @@ export const setPost = page => {
 	return {type: SET_POST, payload: page}
 }
 
-export const getByUser = id => dispatch => 
+export const getByUser = id => dispatch => {
+	dispatch(postsLoading(true))
 	fetch('https://jsonplaceholder.typicode.com/posts')
 	.then(resp => resp.json())
-	.then(json => 
+	.then(json => {
 		dispatch({type: GET_POSTS, 
 			payload: json.filter(post => post.userId == id).reverse()
 		})
-	)
-	.catch(() => dispatch({type: ERROR}))
+		dispatch(postsLoading(false));
+	})
+	.catch(() => {
+		dispatch({type: ERROR})
+		dispatch(postsLoading(false));
+	})
+}
